@@ -2,7 +2,7 @@ import e, { NextFunction, Request, Response } from "express";
 import { ZodTypeAny } from "zod";
 import { prisma } from "../database/prisma";
 import { NotFoundError } from "../errors/NotFoundError";
-import { AppError } from "../errors/appError";
+import { AppError } from "../errors/AppError";
 
 class EnsureMiddleware {
   public bodyIsValid =

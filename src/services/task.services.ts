@@ -12,8 +12,8 @@ import {
 } from "../schemas/task.schema";
 
 export class taskService {
-  public create = async (tasks: TaskCreate): Promise<TaskReturn> => {
-    const task = await prisma.task.create({ data: tasks });
+  public create = async (tasks: TaskCreate, userId: number): Promise<TaskReturn> => {
+    const task = await prisma.task.create({ data: {...tasks, userId} });
     return task;
   };
 

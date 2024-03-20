@@ -9,7 +9,8 @@ export class taskController {
     { body }: Request,
     res: Response
   ): Promise<Response> => {
-    return res.status(201).json(await this.taskService.create(body));
+    const userId = Number(res.locals.sub)
+    return res.status(201).json(await this.taskService.create(body, userId));
   };
 
   public read = async (

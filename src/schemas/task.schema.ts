@@ -9,7 +9,6 @@ const taskSchema = z.object({
     content: z.string().min(1).max(75),
     categoryId: z.number().nullish(),
     finished: z.boolean().default(false)
-    
 })
 
 const taskCreateSchema = taskSchema.omit({id: true, finished: true})

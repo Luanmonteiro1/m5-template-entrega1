@@ -8,7 +8,8 @@ export class categoryController {
         { body }: Request,
         res: Response
       ): Promise<Response> => {
-        return res.status(201).json(await this.categoryService.create(body));
+        const userId = Number(res.locals.sub)
+        return res.status(201).json(await this.categoryService.create(body, userId));
       };
       public delete = async (req: Request, res: Response): Promise<Response> => {
         await this.categoryService.delete(Number(req.params.id))
